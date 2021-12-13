@@ -73,6 +73,7 @@ class ToDoListViewController: UITableViewController {
         guard let date = list[indexPath.section].dueDate else { return cell }
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
         cell.dateLabel.text = dateFormatter.string(from: date)
         //Check if Completed or Not to Add Check Mark
         if list[indexPath.section].completion {
