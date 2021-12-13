@@ -8,82 +8,88 @@
 import UIKit
 
 class AddToDoTableViewController: UITableViewController {
-
+   
+    //Connect My IBOutlet
+    @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    //Create ToDoListSaveDelegate Variable To Pass The Data
+    weak var toDoListSaveDelegate: ToDoListSaveDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //MARK: Set Placeholder To The Note TextView
+        noteTextView.delegate = self
+        noteTextView.text = "Please Enter Note Here"
+        noteTextView.textColor = .lightGray
+        //MARK: Designing TextField and TextView
+        noteTextView.layer.cornerRadius = 10
+        titleTextField.layer.cornerRadius = 20
+        titleTextField.layer.borderWidth = 2
+        titleTextField.layer.masksToBounds = true
+        titleTextField.layer.borderColor = UIColor.red.cgColor
+        //MARK: Allow Only Future Dates to be Set
+        datePicker.minimumDate = .now
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    //MARK: Save New Item
+    @IBAction func addItemButton(_ sender: UIButton) {
+        if checkEntry() {
+            guard let title = titleTextField.text else { return }
+            guard let note = noteTextView.text else { return }
+            let date = datePicker.date
+            toDoListSaveDelegate?.saveNewItem(title: title, note: note, date: date)
+            //Back To Main View
+            self.navigationController?.popViewController(animated: true)
+        }else {
+            let alert = UIAlertController(title: "WARNING", message: "Please Enter Valid Values", preferredStyle: .alert)
+            alert.view.backgroundColor = .red
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+                return
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    //MARK: Function to Check All Entries
+    func checkEntry() -> Bool {
+        var check = true
+        if let title = titleTextField.text {
+            if title.isEmpty {
+                check = false
+            }
+        }
+        if noteTextView.textColor == .lightGray {
+            check = false
+        }
+        return check
     }
-
-    /*
+    
+    //MARK: Using This Function To Add Corners To The Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        cell.layer.cornerRadius = 20
         return cell
     }
-    */
+    
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+//MARK: Using UITextViewDelegate Methods To Control The Note TextView
+extension AddToDoTableViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = nil
+            textView.textColor = .darkGray
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Please Enter Note Here"
+            textView.textColor = .lightGray
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

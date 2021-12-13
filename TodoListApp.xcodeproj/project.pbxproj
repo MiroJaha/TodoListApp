@@ -19,7 +19,7 @@
 		84175CC1276775300085DAE0 /* TodoListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84175CC0276775300085DAE0 /* TodoListAppUITestsLaunchTests.swift */; };
 		84175CCE27677D1C0085DAE0 /* AddToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84175CCD27677D1C0085DAE0 /* AddToDoTableViewController.swift */; };
 		84175CD027677D630085DAE0 /* ToDoCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84175CCF27677D630085DAE0 /* ToDoCustomTableViewCell.swift */; };
-		84175CD227677D8E0085DAE0 /* ControlToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84175CD127677D8E0085DAE0 /* ControlToDoList.swift */; };
+		84175CD227677D8E0085DAE0 /* ToDoListSaveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84175CD127677D8E0085DAE0 /* ToDoListSaveDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		84175CC0276775300085DAE0 /* TodoListAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		84175CCD27677D1C0085DAE0 /* AddToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoTableViewController.swift; sourceTree = "<group>"; };
 		84175CCF27677D630085DAE0 /* ToDoCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCustomTableViewCell.swift; sourceTree = "<group>"; };
-		84175CD127677D8E0085DAE0 /* ControlToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlToDoList.swift; sourceTree = "<group>"; };
+		84175CD127677D8E0085DAE0 /* ToDoListSaveDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListSaveDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 				84175C9A2767752F0085DAE0 /* AppDelegate.swift */,
 				84175CCD27677D1C0085DAE0 /* AddToDoTableViewController.swift */,
 				84175C9C2767752F0085DAE0 /* SceneDelegate.swift */,
-				84175CD127677D8E0085DAE0 /* ControlToDoList.swift */,
+				84175CD127677D8E0085DAE0 /* ToDoListSaveDelegate.swift */,
 				84175CCF27677D630085DAE0 /* ToDoCustomTableViewCell.swift */,
 				84175C9E2767752F0085DAE0 /* ToDoListViewController.swift */,
 				84175CA02767752F0085DAE0 /* Main.storyboard */,
@@ -275,7 +275,7 @@
 				84175CD027677D630085DAE0 /* ToDoCustomTableViewCell.swift in Sources */,
 				84175C9D2767752F0085DAE0 /* SceneDelegate.swift in Sources */,
 				84175CCE27677D1C0085DAE0 /* AddToDoTableViewController.swift in Sources */,
-				84175CD227677D8E0085DAE0 /* ControlToDoList.swift in Sources */,
+				84175CD227677D8E0085DAE0 /* ToDoListSaveDelegate.swift in Sources */,
 				84175CA52767752F0085DAE0 /* TodoListApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
