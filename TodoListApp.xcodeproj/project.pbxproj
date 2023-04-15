@@ -108,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				84175C9A2767752F0085DAE0 /* AppDelegate.swift */,
-				84175CCD27677D1C0085DAE0 /* AddToDoTableViewController.swift */,
 				84175C9C2767752F0085DAE0 /* SceneDelegate.swift */,
+				84175CCD27677D1C0085DAE0 /* AddToDoTableViewController.swift */,
 				84175CD127677D8E0085DAE0 /* ToDoListSaveDelegate.swift */,
 				84175CCF27677D630085DAE0 /* ToDoCustomTableViewCell.swift */,
 				84175C9E2767752F0085DAE0 /* ToDoListViewController.swift */,

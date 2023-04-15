@@ -46,7 +46,7 @@ class AddToDoTableViewController: UITableViewController {
         }else {
             let alert = UIAlertController(title: "WARNING", message: "Please Enter Valid Values", preferredStyle: .alert)
             alert.view.backgroundColor = .red
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: {action in
                 return
             }))
             self.present(alert, animated: true, completion: nil)
